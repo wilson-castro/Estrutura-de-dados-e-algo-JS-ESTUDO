@@ -60,3 +60,31 @@ result.aliminated.forEach( name => {
   console.log(`${name} was aliminated from the Hot Potato game.`);
 });
 console.log(`The Winner is: ${result.winner}`);
+
+console.log('=-=-=-=-=-=-=-=-= Palindromo =-=-=-=-=-=-=-=');
+
+function palindromoChecker(aString) {
+  if (aString === undefined || aString === null || ( aString !== null && aString.length === 0 )) {
+    return false;
+  }
+  const deque = new Deque();
+  const lowerString = aString.toLocaleLowerCase().split(' ').join('');
+  let isEqual = true
+  let firstChar, lastChar;
+  for (let i = 0; i < lowerString.length; i++){
+    deque.addBack(lowerString.charAt(i));
+  }
+  while (deque.size() > 1 && isEqual) {
+    firstChar = deque.removeFront();
+    lastChar = deque.removeBack();
+    if(firstChar !== lastChar){
+      isEqual  = false;
+    }
+  }
+  return isEqual;
+}
+
+console.log('a', palindromoChecker('a'));
+console.log('aa', palindromoChecker('aa'));
+console.log('kayak', palindromoChecker('kayak'));
+console.log('level', palindromoChecker('level'));

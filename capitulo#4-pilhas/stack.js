@@ -1,10 +1,25 @@
 // @ts-check
 
+// const _items = Symbol('stackItems')
 export default class Stack {
   constructor() {
     this.count = 0;
     this.items = {};
   }
+  // Usando simbolos
+  // constructor() {
+  //   this[_items] = []
+  // }
+  // Convenção nomeclatura
+  // constructor() {
+  //   this._count = 0;
+  //   this._items = {};
+  // }
+  // Vulnerável
+  // constructor() {
+  //   this.count = 0;
+  //   this.items = {};
+  // }
 
   push(element) {
     this.items[this.count] = element;

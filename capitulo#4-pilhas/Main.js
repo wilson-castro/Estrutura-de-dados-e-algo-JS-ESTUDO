@@ -22,3 +22,8 @@ console.log(stackArray.size());
 const stack = new Stack();
 stack.push(5);
 stack.push(8);
+
+// Vulneráveis
+console.log(Object.getOwnPropertyNames(stack));
+console.log(Object.keys(stack));
+console.log(stack.items);

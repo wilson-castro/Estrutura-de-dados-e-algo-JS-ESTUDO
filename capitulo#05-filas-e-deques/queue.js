@@ -1,4 +1,3 @@
-// @ts-check
 
 export default class Queue {
   constructor() {

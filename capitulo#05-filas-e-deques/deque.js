@@ -1,4 +1,3 @@
-// @ts-check
 
 export default class Deque {
   constructor() {

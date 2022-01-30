@@ -168,3 +168,26 @@ graph.addEdge('D', 'H');
 graph.addEdge('B', 'E');
 graph.addEdge('B', 'F');
 graph.addEdge('E', 'I');
+
+
+//teste usando run coder, as importações são necessárias
+const shortestPathA = BFS(graph, myVertices[0]);
+console.log(shortestPathA.distances);
+console.log(shortestPathA.predecessors);
+
+//from A to all other vertices
+const fromVertex = myVertices[0];
+
+for (let i = 1; i < myVertices.length; i++) {
+  const toVertex = myVertices[i];
+  const path = new Stack();
+  for (let v = toVertex; v !== fromVertex; v = shortestPathA.predecessors[v]) {
+    path.push(v);
+  }
+  path.push(fromVertex);
+  let s = path.pop();
+  while (!path.isEmpty()) {
+    s += ' - ' + path.pop();
+  }
+  console.log(s);
+}
